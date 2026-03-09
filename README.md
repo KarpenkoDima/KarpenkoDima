@@ -1,16 +1,19 @@
-## Hi there 👋
+# Привет! 👋
 
-<!--
-**KarpenkoDima/KarpenkoDima** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+Я **Дима Карпенко** — разработчик
 
-Here are some ideas to get you started:
+![GitHub stats](https://github-readme-stats.vercel.app/api?username=KarpenkoDima&show_icons=true&theme=dark)
 
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
+![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=KarpenkoDima&layout=compact&theme=dark)
+
+---
+
+## 🔧 Технологии
+- C# / .NET
+- React / JavaScript
+- SQL Server
+
+---
+
+## 💼 Проекты
+- [DevQuestions](https://github.com/KarpenkoDima/DevQuestions)
