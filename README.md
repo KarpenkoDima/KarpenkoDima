@@ -10,9 +10,8 @@
 
 ## 🔧 Технологии
 - C# / .NET
-- React / JavaScript
 - SQL Server
-
+- Network 
 ---
 
 ## 💼 Проекты
