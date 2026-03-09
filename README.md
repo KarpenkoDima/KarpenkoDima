@@ -2,7 +2,7 @@
 
 Я **Дима Карпенко** — разработчик
 
-![Stats](https://github-profile-summary-cards.vercel.app/api/cards/stats?username=KarpenkoDima&theme=github_dark)
+![Stats](https://github-profile-summary-cards.vercel.app/api/cards/stats?username=KarpenkoDima&theme=github)
 
 ![Languages](https://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=KarpenkoDima&theme=github)
 
