@@ -76,3 +76,8 @@ flowchart TD
 * **LogPulse**: A backpressure-aware telemetry collector. Designed to safely ingest traffic spikes from hardware routers (MikroTik Syslog) and Windows environments without throwing OOM exceptions.
 
 * **MedCert Platform**: A workflow-driven patient management system utilizing strict state validation and domain-driven design principles for immutable auditability.
+
+* ## 📈 GitHub Stats
+
+![Stats](<https://github-profile-summary-cards.vercel.app/api/cards/stats?username=KarpenkoDima&theme=github_dark>)
+![Languages](<https://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=KarpenkoDima&theme=github_dark>)
