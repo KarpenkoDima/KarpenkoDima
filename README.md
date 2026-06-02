@@ -1,48 +1,78 @@
-# Дима Карпенко
+# Hi, I'm Dmitry Karpenko 👋
+### Senior .NET Developer & Systems Engineer
 
-**Backend-разработчик · Сетевой и системный администратор · DevOps-направление**
+I am a backend and systems-oriented engineer focused on building high-performance data processing pipelines, network protocol analyzers, and infrastructure-level applications. 
 
-Работаю инженером-программистом, системным и сетевым администратором в областном медицинском учреждении. Занимаюсь разработкой внутренних автоматизированных систем, администрированием Windows-инфраструктуры и обеспечением работы сети.
-
----
-
-## Стек
-
-**Backend**
-- C# / .NET (основной язык)
-- <ASP.NET> Core — Web API, Razor Pages
-- SQL Server, T-SQL
-
-**Infrastructure & DevOps**
-- Docker, Docker Compose
-- Nginx (reverse proxy, SSL)
-- Windows Server, Active Directory
-- Сетевое администрирование (TCP/IP, VLAN, маршрутизация)
-- Linux (базовый уровень)
-- Python (автоматизация, скрипты)
+I approach architecture from a systems perspective: focusing on data flow, memory efficiency (zero-allocation), and robust deployment models, bridging the gap between enterprise logic, cloud infrastructure, and hardware telemetry.
 
 ---
 
-## Проекты
-
-| Проект | Описание | Стек |
-|--------|----------|------|
-| [PatientsDispancer](<https://github.com/KarpenkoDima/PatientsDispancer>) | Система учёта пациентов для медучреждения | C#, .NET, SQL Server |
-| [MedCert](<https://github.com/KarpenkoDima/MedCert>) | Генерация медицинских справок и документов | C#, .NET |
-| [Distributed-FTP-Server](<https://github.com/KarpenkoDima/Distributed-FTP-Server>) | Распределённый FTP-сервер | C#, .NET, сети |
-| [NetDissector](<https://github.com/KarpenkoDima/NetDissector>) | Анализатор сетевого трафика | C#, .NET |
-| [AirPrintBridge](<https://github.com/KarpenkoDima/AirPrintBridge>) | Мост для печати с iOS-устройств в корпоративной сети | C#, .NET, сети |
-| [Docker-Flask-Nginx-MySQL](<https://github.com/KarpenkoDima/Docker-Flask-Nginx-MySQL>) | Контейнеризированное веб-приложение | Docker, Nginx, Python, MySQL |
+### 🧠 Core Engineering Philosophy
+> **Ingestion → Processing (Backpressure) → Normalization → Output**
+> *Designing systems that handle real-world telemetry and network streams reliably.*
 
 ---
 
-## Статистика
+### 🏗️ My Engineering Ecosystem
 
-![Stats](<https://github-profile-summary-cards.vercel.app/api/cards/stats?username=KarpenkoDima&theme=github_dark>)
-![Languages](<https://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=KarpenkoDima&theme=github_dark>)
+This is the architectural layered model I use to build and scale systems, from low-level network packets to high-level enterprise workflows.
 
----
+```mermaid
+flowchart TD
+    classDef layer fill:#0d1117,stroke:#30363d,stroke-width:2px,color:#c9d1d9,rx:8px,ry:8px;
+    classDef tech fill:#161b22,stroke:#21262d,stroke-width:1px,color:#58a6ff;
 
-## Контакты
+    subgraph Business["🏢 Business Layer (Enterprise & Workflow)"]
+        direction TB
+        M["Healthcare & Patient Management (MedCert)"]:::tech
+        Stack1["ASP.NET Core • Clean Architecture • Dapper • Redis"]:::tech
+        M --- Stack1
+    end
+    class Business layer
 
-<!-- Добавь свои контакты: email, Telegram, LinkedIn -->
+    subgraph Infra["🐳 Infrastructure Layer (Deployment & Routing)"]
+        direction TB
+        T["Multi-Tenant Isolation Platform"]:::tech
+        Stack2["Docker • Traefik Reverse Proxy • Cloud Ready"]:::tech
+        T --- Stack2
+    end
+    class Infra layer
+
+    subgraph Observability["📊 Observability Layer (Telemetry & Backpressure)"]
+        direction TB
+        L["LogPulse Aggregation Pipeline"]:::tech
+        Stack3["Syslog / Winlogbeat • Bounded Channels • Resilient Streaming"]:::tech
+        L --- Stack3
+    end
+    class Observability layer
+
+    subgraph Network["📡 Network Layer (Low-level Data Processing)"]
+        direction TB
+        N["NetDissector / Packet Analysis"]:::tech
+        Stack4["Ethernet -> IP -> TCP • System.IO.Pipelines • Zero-Allocation"]:::tech
+        N --- Stack4
+    end
+    class Network layer
+
+    Business -->|Containerized Services| Infra
+    Infra -->|Logs & Metrics| Observability
+    Observability -->|Traffic Analysis| Network
+```
+
+### 🚀 Technical Arsenal
+* **Backend & Architecture**: .NET, C#, Clean Architecture, REST APIs, Dapper
+
+* **Systems & Performance**: `System.IO.Pipelines`, Bounded Channels (Backpressure), `ReadOnlySpan`, Zero-Allocation Parsing
+
+* **Networking**: Packet Analysis (Ethernet/IP/TCP), NetFlow v9, MikroTik Routing, Protocol Decoders
+
+* **Infrastructure & OS**: Docker, Traefik, Debian Linux, Redis, Syslog
+
+* **Currently Preparing For**: AWS Certified Developer (DVA-C02)
+
+### 💡 Featured Projects
+* **NetDissector**: A low-level network packet parsing engine built with C#. Highly optimized for high-throughput traffic using struct-based parsing and `System.IO.Pipelines` to minimize memory allocations.
+
+* **LogPulse**: A backpressure-aware telemetry collector. Designed to safely ingest traffic spikes from hardware routers (MikroTik Syslog) and Windows environments without throwing OOM exceptions.
+
+* **MedCert Platform**: A workflow-driven patient management system utilizing strict state validation and domain-driven design principles for immutable auditability.
