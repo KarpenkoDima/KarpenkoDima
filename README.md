@@ -1,83 +1,167 @@
 # Hi, I'm Dmitry Karpenko 👋
-### Senior .NET Developer & Systems Engineer
 
-I am a backend and systems-oriented engineer focused on building high-performance data processing pipelines, network protocol analyzers, and infrastructure-level applications. 
+### C# / .NET Backend & Systems Engineer
 
-I approach architecture from a systems perspective: focusing on data flow, memory efficiency (zero-allocation), and robust deployment models, bridging the gap between enterprise logic, cloud infrastructure, and hardware telemetry.
+I build backend, networking and infrastructure-oriented applications with a focus on **reliability, data processing, concurrency and performance**.
 
----
-
-### 🧠 Core Engineering Philosophy
-> **Ingestion → Processing (Backpressure) → Normalization → Output**
-> *Designing systems that handle real-world telemetry and network streams reliably.*
+My background combines software development with systems and network engineering, so I am especially interested in software that operates close to infrastructure: network telemetry, log processing, asynchronous pipelines, Linux services and production automation.
 
 ---
 
-### 🏗️ My Engineering Ecosystem
+## 🚀 Featured Projects
 
-This is the architectural layered model I use to build and scale systems, from low-level network packets to high-level enterprise workflows.
+### 📡 NetFlowv9
 
-```mermaid
-flowchart TD
-    classDef layer fill:#0d1117,stroke:#30363d,stroke-width:2px,color:#c9d1d9,rx:8px,ry:8px;
-    classDef tech fill:#161b22,stroke:#21262d,stroke-width:1px,color:#58a6ff;
+High-performance **NetFlow v9 collector** built with .NET 9.
 
-    subgraph Business["🏢 Business Layer (Enterprise & Workflow)"]
-        direction TB
-        M["Healthcare & Patient Management (MedCert)"]:::tech
-        Stack1["ASP.NET Core • Clean Architecture • Dapper • Redis"]:::tech
-        M --- Stack1
-    end
-    class Business layer
+The system receives traffic metadata from MikroTik routers over UDP, parses template-based flow records, processes them through bounded asynchronous pipelines and persists historical data in ClickHouse.
 
-    subgraph Infra["🐳 Infrastructure Layer (Deployment & Routing)"]
-        direction TB
-        T["Multi-Tenant Isolation Platform"]:::tech
-        Stack2["Docker • Traefik Reverse Proxy • Cloud Ready"]:::tech
-        T --- Stack2
-    end
-    class Infra layer
+**Key technologies and concepts:**
 
-    subgraph Observability["📊 Observability Layer (Telemetry & Backpressure)"]
-        direction TB
-        L["LogPulse Aggregation Pipeline"]:::tech
-        Stack3["Syslog / Winlogbeat • Bounded Channels • Resilient Streaming"]:::tech
-        L --- Stack3
-    end
-    class Observability layer
+* .NET 9 / C#
+* UDP networking
+* NetFlow v9
+* `System.Threading.Channels`
+* `ReadOnlySpan<byte>`
+* `ArrayPool<byte>`
+* bounded processing pipelines
+* ClickHouse
+* WebSockets
+* Grafana
+* Docker Compose
 
-    subgraph Network["📡 Network Layer (Low-level Data Processing)"]
-        direction TB
-        N["NetDissector / Packet Analysis"]:::tech
-        Stack4["Ethernet -> IP -> TCP • System.IO.Pipelines • Zero-Allocation"]:::tech
-        N --- Stack4
-    end
-    class Network layer
+The project is used in a real internal network with MikroTik routers.
 
-    Business -->|Containerized Services| Infra
-    Infra -->|Logs & Metrics| Observability
-    Observability -->|Traffic Analysis| Network
-```
+➡️ [NetFlowv9](https://github.com/KarpenkoDima/NetFlowv9)
 
-### 🚀 Technical Arsenal
-* **Backend & Architecture**: .NET, C#, Clean Architecture, REST APIs, Dapper
+---
 
-* **Systems & Performance**: `System.IO.Pipelines`, Bounded Channels (Backpressure), `ReadOnlySpan`, Zero-Allocation Parsing
+### 📊 LogCollector
 
-* **Networking**: Packet Analysis (Ethernet/IP/TCP), NetFlow v9, MikroTik Routing, Protocol Decoders
+A lightweight **Syslog ingestion and processing service** for MikroTik devices.
 
-* **Infrastructure & OS**: Docker, Traefik, Debian Linux, Redis, Syslog
+The collector receives BSD Syslog messages over UDP, parses them without regular expressions or unnecessary intermediate strings, queues them through a bounded channel and writes batches to SQLite.
 
-* **Currently Preparing For**: AWS Certified Developer (DVA-C02)
+Loki and Grafana can be enabled for centralized log analysis.
 
-### 💡 Featured Projects
-* **NetDissector**: A low-level network packet parsing engine built with C#. Highly optimized for high-throughput traffic using struct-based parsing and `System.IO.Pipelines` to minimize memory allocations.
+**Key technologies and concepts:**
 
-* **LogPulse**: A backpressure-aware telemetry collector. Designed to safely ingest traffic spikes from hardware routers (MikroTik Syslog) and Windows environments without throwing OOM exceptions.
+* .NET 9
+* BSD Syslog / RFC 3164
+* UDP
+* `MemoryPool<byte>`
+* zero-copy parsing
+* bounded `Channel<T>`
+* batching
+* Dapper
+* SQLite / WAL
+* Loki
+* Grafana
+* Docker
+* integration and end-to-end testing
 
-* **MedCert Platform**: A workflow-driven patient management system utilizing strict state validation and domain-driven design principles for immutable auditability.
+➡️ [LogCollector](https://github.com/KarpenkoDima/LogCollector)
 
-* ## 📈 GitHub Stats
+---
 
-![Stats](<https://github-profile-summary-cards.vercel.app/api/cards/stats?username=KarpenkoDima&theme=github_dark>)
-![Languages](<https://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=KarpenkoDima&theme=github_dark>)
+### 🏥 MedCert
+
+A production Windows desktop application for generating and printing medical certificates.
+
+The application was created for a real healthcare workflow and has been used in production for more than four years.
+
+It automates document generation, printing confirmation, certificate history and repeat printing while operating completely offline on a single workstation.
+
+**Key technologies and concepts:**
+
+* C#
+* .NET Framework 4.8
+* Windows Forms
+* LiteDB
+* Microsoft Word / DOCX integration
+* Dependency Injection
+* Repository / Unit of Work
+* NUnit
+* Moq
+* production legacy refactoring
+
+The project demonstrates long-term maintenance and incremental modernization of real production software.
+
+➡️ [MedCert](https://github.com/KarpenkoDima/MedCert)
+
+---
+
+## 🧪 Engineering Labs & Learning Projects
+
+I also maintain smaller repositories used to study implementation details rather than only framework APIs.
+
+### Networking & Systems
+
+* [TCP-Book](https://github.com/KarpenkoDima/TCP-Book) — TCP and network programming experiments and educational implementations.
+* [NetDissector](https://github.com/KarpenkoDima/NetDissector) — packet parsing experiments using `ReadOnlySpan<byte>`.
+* [Distributed-FTP-Server](https://github.com/KarpenkoDima/Distributed-FTP-Server) — educational distributed-systems and FTP infrastructure lab.
+
+### .NET Internals
+
+* [CoreLinq](https://github.com/KarpenkoDima/CoreLinq) — learning how LINQ operators and iterators work internally.
+* [asyncexpert-course](https://github.com/KarpenkoDima/asyncexpert-course) — async/await and concurrency exercises.
+* [BatchWriterService](https://github.com/KarpenkoDima/BatchWriterService) — batching and asynchronous processing experiments.
+
+### Data Access
+
+* [EFCode-Advanced_Guide](https://github.com/KarpenkoDima/EFCode-Advanced_Guide) — EF Core experiments and advanced data-access notes.
+
+---
+
+## 🛠 Technologies
+
+**Backend**
+
+C# • .NET • ASP.NET Core • REST APIs • EF Core • Dapper
+
+**Concurrency & Performance**
+
+async/await • `Task` / `ValueTask` • `Channel<T>` • `Span<T>` • `Memory<T>` • memory pooling • batching • backpressure
+
+**Networking**
+
+TCP/IP • UDP • Syslog • NetFlow v9 • packet parsing • MikroTik
+
+**Data**
+
+SQL Server • SQLite • LiteDB • ClickHouse • Redis
+
+**Infrastructure**
+
+Linux • Docker • Docker Compose • Grafana • Loki • GitHub Actions
+
+**Testing**
+
+xUnit • NUnit • Moq • integration testing • end-to-end testing
+
+---
+
+## 🧠 Areas I Study
+
+I am particularly interested in understanding what happens below high-level APIs:
+
+* .NET async/await internals
+* memory allocation and pooling
+* high-throughput processing pipelines
+* TCP/IP and network protocols
+* Linux networking
+* database query performance
+* distributed systems
+* observability and production diagnostics
+
+---
+
+## 📈 Current Focus
+
+Currently developing and improving projects around:
+
+**ASP.NET Core • high-performance .NET • networking • distributed systems • Linux infrastructure**
+
+---
+
+> I prefer projects where architecture and performance decisions can be explained in terms of actual data flow, resource ownership, failure modes and operational constraints.
